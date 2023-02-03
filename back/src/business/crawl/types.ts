@@ -3,7 +3,7 @@ import { CheerioAPI } from 'cheerio';
 export interface WebsiteConfig {
   name: string;
   url: string;
-  paginationparam: string;
+  paginationParam: string;
   paginationSize: number;
   extractDataFn: ($: CheerioAPI) => void;
 }

@@ -25,6 +25,7 @@ export const extractData = ($: CheerioAPI) => {
   return pageData;
 };
 
-export const getTotalResults = ($: CheerioAPI) => {
-  return Number($(selectors.totalResult).text().replace(/\D/g, ''));
+export const getTotalPages = ($: CheerioAPI, paginationSize: number) => {
+  const totalResult = Number($(selectors.totalResult).text().replace(/\D/g, ''));
+  return totalResult / paginationSize;
 };
