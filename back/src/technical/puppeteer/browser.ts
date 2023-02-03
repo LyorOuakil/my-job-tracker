@@ -1,15 +1,15 @@
-import puppeteer, { Browser, PuppeteerLaunchOptions } from "puppeteer";
+import puppeteer, { Browser, PuppeteerLaunchOptions } from 'puppeteer';
 
 export class BrowserInstance {
-    constructor() {
-        return;
-    }
+  constructor() {
+    return;
+  }
 
-    async getBrowser (browserOptions: PuppeteerLaunchOptions = {}) {
-        return await puppeteer.launch(browserOptions);
-    }
+  async getBrowser(browserOptions: PuppeteerLaunchOptions = {}) {
+    return await puppeteer.launch(browserOptions);
+  }
 
-    async closeBrowser(browser: Browser) {
-        await browser?.close();
-    }
+  async closeBrowser(browser: Browser) {
+    await browser?.close();
+  }
 }

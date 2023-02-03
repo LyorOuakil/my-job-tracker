@@ -1,12 +1,12 @@
-// SCRAPPING TOOLS 
+// SCRAPPING TOOLS
 
-import { executeCrawling } from "./business/crawl";
-import { websiteConfig } from "./business/crawl/websites/config";
+import { executeCrawling } from './business/crawl';
+import { websiteConfig } from './business/crawl/websites/config';
 
 /**
  * Create an IP adress rotation
  * Method that will create a new IP adress
- * Method that will update the IP of a browser 
+ * Method that will update the IP of a browser
  */
 
 /**
@@ -29,15 +29,13 @@ import { websiteConfig } from "./business/crawl/websites/config";
  * Handle how we want to get it  (html tag)
  */
 
-
 executeCrawling(websiteConfig[0]);
-
 
 /**
  * executeCrawl(config)
-    * launchUrlAndGetHtmlContent(config.url)
-    * getDataFromPage(config.extractData)
-    * checkDataFromPage(config.transformData)
-    * loadDataFromPage(config.loadData)
+ * launchUrlAndGetHtmlContent(config.url)
+ * getDataFromPage(config.extractData)
+ * checkDataFromPage(config.transformData)
+ * loadDataFromPage(config.loadData)
  *
  */

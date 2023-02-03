@@ -1,31 +1,30 @@
-import { CheerioAPI } from "cheerio";
-import { getTextElementWithSelector } from "../../../../technical/cheerio";
-import { PageData } from "../../types";
+import { CheerioAPI } from 'cheerio';
+import { getTextElementWithSelector } from '../../../../technical/cheerio';
+import { PageData } from '../../types';
 
 export const selectors = {
-    jobTitle: '.jobTitle',
-    companyName: '.companyName',
-    companyLocation: '.companyLocation',
-    jobSalary: '.salary-snippet-container',
-    totalResult: '.jobsearch-JobCountAndSortPane-jobCount'
+  jobTitle: '.jobTitle',
+  companyName: '.companyName',
+  companyLocation: '.companyLocation',
+  jobSalary: '.salary-snippet-container',
+  totalResult: '.jobsearch-JobCountAndSortPane-jobCount',
 };
 
 export const extractData = ($: CheerioAPI) => {
-    const pageData: PageData[] = [];
-    const cardsElements = $('.jobsearch-ResultsList .resultContent');
+  const pageData: PageData[] = [];
+  const cardsElements = $('.jobsearch-ResultsList .resultContent');
 
-    cardsElements.each((_index, card) => {
-        pageData.push({
-            jobTitle: getTextElementWithSelector($, card, selectors.jobTitle),
-            companyName:  getTextElementWithSelector($, card, selectors.companyName),
-            companyLocation:  getTextElementWithSelector($, card, selectors.companyLocation),
-            jobSalary:  getTextElementWithSelector($, card, selectors.jobSalary),
-        });
+  cardsElements.each((_index, card) => {
+    pageData.push({
+      jobTitle: getTextElementWithSelector($, card, selectors.jobTitle),
+      companyName: getTextElementWithSelector($, card, selectors.companyName),
+      companyLocation: getTextElementWithSelector($, card, selectors.companyLocation),
+      jobSalary: getTextElementWithSelector($, card, selectors.jobSalary),
     });
-    return pageData;
+  });
+  return pageData;
 };
 
-
 export const getTotalResults = ($: CheerioAPI) => {
-    return Number($(selectors.totalResult).text().replace(/\D/g, ''));
+  return Number($(selectors.totalResult).text().replace(/\D/g, ''));
 };

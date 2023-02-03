@@ -1,10 +1,12 @@
-import { WebsiteConfig } from "../types";
-import { extractData } from "./indeed";
+import { WebsiteConfig } from '../types';
+import { extractData } from './indeed';
 
-export const websiteConfig: WebsiteConfig[] = [{
+export const websiteConfig: WebsiteConfig[] = [
+  {
     name: 'indeed',
     url: 'https://fr.indeed.com/jobs?q=développeur+web',
     paginationparam: '&start',
     paginationSize: 20,
-    extractDataFn: extractData
-}];
+    extractDataFn: extractData,
+  },
+];
