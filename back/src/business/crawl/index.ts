@@ -27,14 +27,14 @@ const crawlWebsite = async ({ browser, page, config }: CrawlWebsiteParam) => {
   const $ = loadCheerio(await getHtmlPageContent(page));
   const totalPage = getTotalPages($, config.paginationSize);
 
-  const websiteData = [];
+  const crawlPagePromises = [];
 
   for (let pageNumber = 1; pageNumber <= totalPage; pageNumber += 1) {
-    const newPage = await launchPage(browser, buildUrl(config, pageNumber));
-    const data = await crawlPage(config, newPage);
-    websiteData.push(data);
+    crawlPagePromises.push(launchPage(browser, buildUrl(config, pageNumber)).then((newPage) => crawlPage(config, newPage)));
   }
-  await fs.appendFile('myjsonfile.json', JSON.stringify(websiteData), 'utf8');
+
+  const data = await Promise.all(crawlPagePromises);
+  await fs.appendFile('myjsonfile.json', JSON.stringify(data), 'utf8');
 };
 
 export const execute = async (config: WebsiteConfig) => {

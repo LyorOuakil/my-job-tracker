@@ -1,6 +1,6 @@
 // SCRAPPING TOOLS
 
-import { executeCrawling } from './business/crawl';
+import { execute } from './business/crawl';
 import { websiteConfig } from './business/crawl/websites/config';
 
 /**
@@ -15,21 +15,7 @@ import { websiteConfig } from './business/crawl/websites/config';
  * Method that will update the User-agent of the browser
  */
 
-/**
- * Create crawl methods
- * Fetch what we want from given html tag
- * Parse it to a jsonobject
- */
-
-/**
- * Create website config
- * Handle url to create
- * Handle pagination of website if needed
- * Handle what we want to get (pure data)
- * Handle how we want to get it  (html tag)
- */
-
-executeCrawling(websiteConfig[0]);
+execute(websiteConfig[0]);
 
 /**
  * executeCrawl(config)
